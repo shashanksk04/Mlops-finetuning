@@ -136,7 +136,19 @@ mlops-finetuning/
 ├── .github/workflows/ci.yml # Test -> train+evaluate -> docker build
 └── requirements.txt
 ```
+## Screenshots
 
+### Training run (real output)
+Training complete. MLflow run_id: 46baa76e1b184714a508ec7073c58517
+### MLflow experiment tracking (real run data)
+
+run_id: 46baa76e1b184714a508ec7073c58517 | status: FINISHED | final_train_loss: 4.054 | trainable_pct: 0.18% | base_model: distilgpt2 | epochs: 3
+
+Key stat: only 0.18% of parameters were trained — LoRA adapters only, 99.82% of the model untouched.
+
+### Evaluation gate (real output)
+
+Evaluation gate PASSED — model promoted to production-ready status in MLflow.
 ## Design decisions
 
 - **CPU-runnable by default** — using `distilgpt2` means anyone (recruiter included) can clone this and see real training happen in under a minute, with no GPU or cloud bill required. The QLoRA code path is real and switches on automatically when a GPU is detected.
