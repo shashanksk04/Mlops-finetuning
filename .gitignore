@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+mlruns/
+outputs/
+*.bin
+*.safetensors
+.DS_Store
+mlflow.db
+data/*.jsonl
